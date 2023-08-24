@@ -6,4 +6,34 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Feature\" />
+    <None Remove="Feature\Brands\" />
+    <None Remove="Feature\Brands\Commands\" />
+    <None Remove="Feature\Brands\Queries\" />
+    <None Remove="Feature\Brands\Constants\" />
+    <None Remove="Feature\Brands\Profiles\" />
+    <None Remove="Feature\Brands\Rules\" />
+    <None Remove="Feature\Brands\Commands\Create\" />
+    <None Remove="Feature\Brands\Commands\Update\" />
+    <None Remove="Feature\Brands\Commands\Delete\" />
+    <None Remove="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Feature\" />
+    <Folder Include="Feature\Brands\" />
+    <Folder Include="Feature\Brands\Commands\" />
+    <Folder Include="Feature\Brands\Queries\" />
+    <Folder Include="Feature\Brands\Constants\" />
+    <Folder Include="Feature\Brands\Profiles\" />
+    <Folder Include="Feature\Brands\Rules\" />
+    <Folder Include="Feature\Brands\Commands\Create\" />
+    <Folder Include="Feature\Brands\Commands\Update\" />
+    <Folder Include="Feature\Brands\Commands\Delete\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+  </ItemGroup>
 </Project>
