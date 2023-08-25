@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Feature.Brands.Commands.Create;
+using Application.Feature.Brands.Commands.Update;
 using Application.Feature.Brands.Queries.GetById;
 using Application.Feature.Brands.Queries.GetList;
 using Core.Application.Requests;
 using Core.Application.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApi.Controllers
 {
@@ -40,6 +40,14 @@ namespace WebApi.Controllers
         {
             GetByIdBrandQuery getByIdBrandQuery = new() { Id = id };
             GetByIdBrandResponse response = await Mediator.Send(getByIdBrandQuery);
+
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateBrandCommand updateBrandCommand)
+        {
+            UpdateBrandResponse response = await Mediator.Send(updateBrandCommand);
 
             return Ok(response);
         }
