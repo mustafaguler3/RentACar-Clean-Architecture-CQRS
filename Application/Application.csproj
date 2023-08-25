@@ -21,6 +21,7 @@
     <None Remove="Services\" />
     <None Remove="Services\Repositories\" />
     <None Remove="Feature\Brands\Queries\GetList\" />
+    <None Remove="Feature\Brands\Queries\GetById\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Feature\" />
@@ -37,6 +38,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Repositories\" />
     <Folder Include="Feature\Brands\Queries\GetList\" />
+    <Folder Include="Feature\Brands\Queries\GetById\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
