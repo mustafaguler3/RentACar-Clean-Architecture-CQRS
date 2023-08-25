@@ -17,7 +17,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] CreateBrandCommand createBrandCommand)
         {
-            CreatedBrandResponse response =  await Mediator.Send(createBrandCommand); // send diyince CreateCrandCommandHanler daki implemente edilen Handle metodu çalışıyor
+            CreatedBrandResponse response =  await Mediator.Send(createBrandCommand);
 
             return Ok(response);
         }

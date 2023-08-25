@@ -1,4 +1,7 @@
 ﻿using System;
+using Application.Services.Repositories;
+using AutoMapper;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.Feature.Brands.Commands.Create
@@ -10,13 +13,26 @@ namespace Application.Feature.Brands.Commands.Create
 
     public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
-        public Task<CreatedBrandResponse> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
-        {
-            CreatedBrandResponse createdBrandResponse = new CreatedBrandResponse();
-            createdBrandResponse.Name = request.Name;
-            createdBrandResponse.Id = new Guid();
 
-            return null;
+        private readonly IBrandRepository _brandRepository;
+        private readonly IMapper _mapper;
+
+        public CreateBrandCommandHandler(IBrandRepository brandRepository, IMapper mapper)
+        {
+            _brandRepository = brandRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<CreatedBrandResponse> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+        {
+            Brand brand = _mapper.Map<Brand>(request);
+            brand.Id = Guid.NewGuid();
+
+            var result = await _brandRepository.AddAsyn(brand);
+
+            CreatedBrandResponse createdBrandResponse = _mapper.Map<CreatedBrandResponse>(result);
+
+            return createdBrandResponse;
         }
     }
 }

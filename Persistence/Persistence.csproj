@@ -6,4 +6,40 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Contexts\" />
+    <None Remove="EntityConfigs\" />
+    <None Remove="Repositories\" />
+    <None Remove="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contexts\" />
+    <Folder Include="EntityConfigs\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.10" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Core.Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Core.Persistence">
+      <HintPath>..\..\Core.Packages\Core.Persistence\bin\Debug\net7.0\Core.Persistence.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

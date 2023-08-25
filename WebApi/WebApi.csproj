@@ -23,5 +23,13 @@
     <ProjectReference Include="..\Application\Application.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Persistence\Persistence.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Core.Persistence">
+      <HintPath>..\..\Core.Packages\Core.Persistence\bin\Debug\net7.0\Core.Persistence.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

@@ -18,6 +18,8 @@
     <None Remove="Feature\Brands\Commands\Update\" />
     <None Remove="Feature\Brands\Commands\Delete\" />
     <None Remove="Extensions\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Feature\" />
@@ -31,9 +33,21 @@
     <Folder Include="Feature\Brands\Commands\Update\" />
     <Folder Include="Feature\Brands\Commands\Delete\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Core.Persistence">
+      <HintPath>..\..\Core.Packages\Core.Persistence\bin\Debug\net7.0\Core.Persistence.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 </Project>
