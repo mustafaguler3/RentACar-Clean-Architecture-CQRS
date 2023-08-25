@@ -20,6 +20,7 @@
     <None Remove="Extensions\" />
     <None Remove="Services\" />
     <None Remove="Services\Repositories\" />
+    <None Remove="Feature\Brands\Queries\GetList\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Feature\" />
@@ -35,17 +36,23 @@
     <Folder Include="Extensions\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Repositories\" />
+    <Folder Include="Feature\Brands\Queries\GetList\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Core.Persistence">
       <HintPath>..\..\Core.Packages\Core.Persistence\bin\Debug\net7.0\Core.Persistence.dll</HintPath>
     </Reference>
+    <Reference Include="Core.Application">
+      <HintPath>..\..\Core.Packages\Core.Application\bin\Debug\net7.0\Core.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=7.0.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

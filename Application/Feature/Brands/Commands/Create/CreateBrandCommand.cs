@@ -5,7 +5,6 @@ using Domain.Entities;
 using MediatR;
 
 namespace Application.Feature.Brands.Commands.Create
-{	//brand nesnesinin kendisi aslında,her commandin bir handler ı olmalı
 	public class CreateBrandCommand : IRequest<CreatedBrandResponse>
 	{
 		public string Name { get; set; }
