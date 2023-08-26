@@ -22,6 +22,14 @@
     <None Remove="Services\Repositories\" />
     <None Remove="Feature\Brands\Queries\GetList\" />
     <None Remove="Feature\Brands\Queries\GetById\" />
+    <None Remove="Feature\Models\" />
+    <None Remove="Feature\Models\Commands\" />
+    <None Remove="Feature\Models\Queries\" />
+    <None Remove="Feature\Models\Profiles\" />
+    <None Remove="Feature\Models\Rules\" />
+    <None Remove="Feature\Models\Constants\" />
+    <None Remove="Feature\Models\Queries\GetList\" />
+    <None Remove="Feature\Models\Queries\GetListByDynamic\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Feature\" />
@@ -39,6 +47,14 @@
     <Folder Include="Services\Repositories\" />
     <Folder Include="Feature\Brands\Queries\GetList\" />
     <Folder Include="Feature\Brands\Queries\GetById\" />
+    <Folder Include="Feature\Models\" />
+    <Folder Include="Feature\Models\Commands\" />
+    <Folder Include="Feature\Models\Queries\" />
+    <Folder Include="Feature\Models\Profiles\" />
+    <Folder Include="Feature\Models\Rules\" />
+    <Folder Include="Feature\Models\Constants\" />
+    <Folder Include="Feature\Models\Queries\GetList\" />
+    <Folder Include="Feature\Models\Queries\GetListByDynamic\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
@@ -55,6 +71,9 @@
       <HintPath>..\..\Core.Packages\Core.Application\bin\Debug\net7.0\Core.Application.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore, Version=7.0.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" />
+    <Reference Include="Core.CrossCuttingConcers">
+      <HintPath>..\..\Core.Packages\Core.CrossCuttingConcers\bin\Debug\net7.0\Core.CrossCuttingConcers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />

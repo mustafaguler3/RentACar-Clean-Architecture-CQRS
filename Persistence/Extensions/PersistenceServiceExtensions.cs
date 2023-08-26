@@ -12,13 +12,20 @@ namespace Persistence.Extensions
 	{
 		public static IServiceCollection AddPersistenceServices(this IServiceCollection services,IConfiguration configuration)
 		{
-			services.AddDbContext<VtContext>(opt =>
+
+            /*services.AddDbContext<VtContext>(opt =>
 			{
 				opt.UseInMemoryDatabase("nArchitecture");
-			});
-			services.AddScoped<IBrandRepository, BrandRepository>();
+			});*/
+            services.AddDbContext<VtContext>(opt =>
+            {
+				opt.UseSqlite(configuration.GetConnectionString("Local"));
+            });
+            services.AddScoped<IBrandRepository, BrandRepository>();
 
-			return services;
+            services.AddScoped<IModelRepository, ModelRepository>();
+            return services;
+
 		}
 	}
 }
