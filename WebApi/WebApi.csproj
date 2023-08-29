@@ -34,5 +34,8 @@
     <Reference Include="Core.Application">
       <HintPath>..\..\Core.Packages\Core.Application\bin\Debug\net7.0\Core.Application.dll</HintPath>
     </Reference>
+    <Reference Include="Core.CrossCuttingConcers">
+      <HintPath>..\..\Core.Packages\Core.CrossCuttingConcers\bin\Debug\net7.0\Core.CrossCuttingConcers.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

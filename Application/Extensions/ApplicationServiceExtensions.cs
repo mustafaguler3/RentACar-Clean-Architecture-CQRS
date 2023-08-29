@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Reflection;
+using Core.Application.Pipelines.Transaction;
+using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.Extensions
@@ -11,11 +14,16 @@ namespace Application.Extensions
 		{
 
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));//base business rules türünde olanları IoC ye ekle
+            services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
 			services.AddMediatR(config =>
 			{
 				config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-			});
+
+                config.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
+                config.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
+            });
+
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 			return services;
 		}
