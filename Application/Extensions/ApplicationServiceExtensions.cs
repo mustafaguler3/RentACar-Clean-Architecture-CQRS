@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Reflection;
 using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
 using Core.Application.Pipelines.Transaction;
 using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
+using Core.CrossCuttingConcers.Serilog;
+using Core.CrossCuttingConcers.Serilog.Logger;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,9 +26,13 @@ namespace Application.Extensions
                 config.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
                 config.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
                 config.AddOpenBehavior(typeof(CachingBehavior<,>));
+                config.AddOpenBehavior(typeof(CacheRemovingBehavior<,>));
+                config.AddOpenBehavior(typeof(LoggingBehavior<,>));
             });
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+            services.AddSingleton<LoggerServiceBase, FileLogger>();
 
 			return services;
 		}

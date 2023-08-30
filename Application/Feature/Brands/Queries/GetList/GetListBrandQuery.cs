@@ -20,6 +20,8 @@ namespace Application.Feature.Brands.Queries.GetList
 
         public bool ByPassCache { get; }
         public TimeSpan? SlidingExpiration { get; set; }
+
+        public string? CacheGroupKey => "GetBrands";
     }
 
     public class GetListBrandQueryHandler : IRequestHandler<GetListBrandQuery, GetListResponse<GetListBrandListItemDto>>
